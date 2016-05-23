@@ -1,4 +1,4 @@
-'''Networkx tutorial examples - algorithms'''
+'''Networkx tutorial - algorithms'''
 
 import math
 from collections import OrderedDict
@@ -15,7 +15,6 @@ from networkx.algorithms.triads import triadic_census
 
 class OrderedNodeGraph(nx.Graph):
     node_dict_factory = OrderedDict
-
 
 G1 = nx.Graph()
 G2 = nx.DiGraph()
