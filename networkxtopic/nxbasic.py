@@ -1590,11 +1590,10 @@ def vitality_alg():
     print('Closeness vitality {}'.format(nx.closeness_vitality(DG)))
     draw_graph(DG)
 
-
-# dijkstra_ex1()
-# repr_graph()
-# repr_graph_1(
-# repr_graph_2()
+    # dijkstra_ex1()
+    # repr_graph()
+    # repr_graph_1()
+    # repr_graph_2()
 # repr_graph_3()
 # create_ordered_node_graph()
 # connectivity_alg()

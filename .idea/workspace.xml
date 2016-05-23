@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7e2a8d0-2bac-4815-87d0-588c89ba95ed" name="Default" comment="Initial version added">
+    <list default="true" id="f7e2a8d0-2bac-4815-87d0-588c89ba95ed" name="Default" comment="Second version">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/networkxtopic/nxbasic.py" afterPath="$PROJECT_DIR$/networkxtopic/nxbasic.py" />
     </list>
@@ -27,8 +27,8 @@
       <file leaf-file-name="nxbasic.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/networkxtopic/nxbasic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="162">
+              <caret line="1592" column="2" selection-start-line="1592" selection-start-column="2" selection-end-line="1592" selection-end-column="2" />
               <folding>
                 <element signature="e#38#49#0" expanded="true" />
               </folding>
@@ -190,7 +190,7 @@
     <property name="options.lastSelected" value="PyConsoleConfigurable.Python Console" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -393,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1464017874419</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Second version">
+      <created>1464018191256</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1464018191256</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -433,7 +440,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Initial version added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial version added" />
+    <MESSAGE value="Second version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Second version" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -445,8 +453,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/networkxtopic/nxbasic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="162">
+          <caret line="1592" column="2" selection-start-line="1592" selection-start-column="2" selection-end-line="1592" selection-end-column="2" />
           <folding>
             <element signature="e#38#49#0" expanded="true" />
           </folding>
