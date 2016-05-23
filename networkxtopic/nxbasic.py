@@ -1,3 +1,5 @@
+'''Networkx tutorial'''
+
 import math
 from collections import OrderedDict
 
