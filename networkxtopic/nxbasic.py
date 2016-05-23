@@ -1,4 +1,4 @@
-'''Networkx tutorial'''
+'''Networkx tutorial examples'''
 
 import math
 from collections import OrderedDict
