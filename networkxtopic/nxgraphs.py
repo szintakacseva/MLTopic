@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import networkx as nx
+from networkx.utils import powerlaw_sequence, random
 
 
 def draw_graph(g):
@@ -84,7 +85,6 @@ def expanders_graphs():
     MGGG = nx.chordal_cycle_graph(8)
     draw_graph(MGGG)
 
-
 def small_graphs():
     print("Make small graph")
     G = nx.make_small_graph(["adjacencylist", "C_4", 4, [[2, 4], [1, 3], [2, 4], [1, 3]]])
@@ -162,7 +162,264 @@ def small_graphs():
     G = nx.tutte_graph()
     draw_graph(G)
 
+
+def random_graphs():
+    print("Random graphs")
+    print("fast GNP random graph")
+    G = nx.fast_gnp_random_graph(n=9, p=0.4)
+    draw_graph(G)
+    print("GNP random graph")
+    G = nx.gnp_random_graph(n=9, p=0.1)
+    draw_graph(G)
+    print("Dense GNM random graph")
+    G = nx.dense_gnm_random_graph(n=19, m=28)
+    draw_graph(G)
+    print("GNM random graph")
+    G = nx.gnm_random_graph(n=11, m=14)
+    draw_graph(G)
+    print("Erdős Rényi graph")
+    G = nx.erdos_renyi_graph(n=11, p=0.4)
+    draw_graph(G)
+    print("Binomial graph")
+    G = nx.binomial_graph(n=45, p=0.4)
+    draw_graph(G)
+    print("Newman Watts Strogatz")
+    G = nx.newman_watts_strogatz_graph(n=9, k=5, p=0.4)
+    draw_graph(G)
+    print("Watts Strogatz")
+    G = nx.watts_strogatz_graph(n=9, k=2, p=0.4)
+    draw_graph(G)
+    print("Watts Strogatz")
+    G = nx.watts_strogatz_graph(n=9, k=2, p=0.4)
+    draw_graph(G)
+    print("Connected Watts Strogatz")
+    G = nx.connected_watts_strogatz_graph(n=8, k=2, p=0.1)
+    draw_graph(G)
+    print("Random Regular Graph")
+    G = nx.random_regular_graph(d=2, n=9)
+    draw_graph(G)
+    print("Barabasi Albert Graph")
+    G = nx.barabasi_albert_graph(n=10, m=2)
+    draw_graph(G)
+    print("Powerlow Cluster Graph")
+    G = nx.powerlaw_cluster_graph(n=10, m=2, p=0.2)
+    draw_graph(G)
+    print("Duplication Divergence Graph")
+    G = nx.duplication_divergence_graph(n=10, p=0.2)
+    draw_graph(G)
+    print("Random lobster Graph")
+    G = nx.random_lobster(n=10, p1=0.2, p2=0.8)
+    draw_graph(G)
+    print("Random shell Graph")
+    constructor = [(10, 20, 0.8), (20, 40, 0.8)]
+    G = nx.random_shell_graph(constructor)
+    draw_graph(G)
+    print("Random Powerlow Tree")
+    G = nx.random_powerlaw_tree(n=24, gamma=3)
+    draw_graph(G)
+    print("Random Powerlow Tree Sequence")
+    G = nx.random_powerlaw_tree(n=13, gamma=3)
+    draw_graph(G)
+
+
+def degree_sequence_graphs():
+    print("Degree sequence")
+    print("Configuration model")
+    z = nx.utils.create_degree_sequence(30, powerlaw_sequence)
+    G = nx.configuration_model(z)
+    draw_graph(G)
+    # to remove paralel edges
+    G = nx.Graph(G)
+    draw_graph(G)
+    # to remove self loops
+    G.remove_edges_from(G.selfloop_edges())
+    draw_graph(G)
+    print("Directed configuration model")
+    D = nx.DiGraph([(0, 1), (1, 2), (2, 3), (1, 3)])  # directed path graph
+    din = list(D.in_degree().values())
+    dout = list(D.out_degree().values())
+    din.append(1)
+    dout[0] = 2
+    D = nx.directed_configuration_model(din, dout)
+    D = nx.DiGraph(D)  # to remove paralell edges
+    D.remove_edges_from(D.selfloop_edges())  # to remove self loops
+    draw_graph(D)
+    print("Expected degree graphs")
+    z = [i for i in range(10)]
+    G = nx.expected_degree_graph(z)
+    draw_graph(G)
+    print("Havel Hakimi graphs")
+    z = [2, 4, 5, 6, 7, 3]
+    G = nx.havel_hakimi_graph(z)
+    draw_graph(G)
+    print("Directed Havel Hakimi graphs")
+    inds = [2, 4, 5, 6, 7, 3]
+    outds = [2, 4, 5, 6, 7, 3]
+    G = nx.directed_havel_hakimi_graph(in_deg_sequence=inds, out_deg_sequence=outds)
+    draw_graph(G)
+    print("Degree Sequence Tree")
+    dg = [1, 2, 3, 4, 2, 3]
+    G = nx.degree_sequence_tree(dg)
+    draw_graph(G)
+    print("Random Degree Sequence")
+    sequence = [1, 2, 2, 3]
+    G = nx.random_degree_sequence_graph(sequence)
+    sorted(G.degree().values())
+    draw_graph(G)
+
+
+def random_clustered_graphs():
+    print("Random Clustered graphs")
+    deg = [(1, 0), (1, 0), (1, 0), (2, 0), (1, 0), (2, 1), (0, 1), (0, 1)]
+    G = nx.random_clustered_graph(deg)
+    G = nx.Graph(G)  # to remove parallel edges
+    G.remove_edges_from(G.selfloop_edges())  # to remove self edges
+    draw_graph(G)
+
+
+def directed_graphs():
+    print("Directed graphs")
+    print("Growing network")
+    D = nx.gn_graph(10)  # the GN graph
+    draw_graph(D)
+    G = D.to_undirected()  # the undirected version
+    draw_graph(G)
+    D = nx.gn_graph(10, kernel=lambda x: x ** 1.5)  # A_k = k^1.5
+    draw_graph(D)
+    print("Growing network graph")
+    D = nx.gnr_graph(n=11, p=0.3)
+    draw_graph(D)
+    G = D.to_undirected()
+    draw_graph(G)
+    print("Growing network with copying graph")
+    D = nx.gnc_graph(n=7)
+    draw_graph(D)
+    G = D.to_undirected()
+    draw_graph(G)
+    print("Scale-free graph")
+    G = nx.scale_free_graph(10)
+    draw_graph(G)
+
+
+def geometric_graphs():
+    print("Random geometric graphs")
+    G = nx.random_geometric_graph(20, 0.1)
+    draw_graph(G)
+    n = 20
+    p = {i: (random.gauss(0, 2), random.gauss(0, 2)) for i in range(n)}
+    G = nx.random_geometric_graph(n, 0.2, pos=p)
+    draw_graph(G)
+    print("Geographical threshold graph")
+    n = 10
+    w = {i: random.expovariate(1.0) for i in range(n)}
+    G = nx.geographical_threshold_graph(n, 30, weight=w)
+    draw_graph(G)
+    print("Waxman graph")
+    G = nx.waxman_graph(27)
+    draw_graph(G)
+    print("Navigable small world graph")
+    G = nx.navigable_small_world_graph(7)
+    draw_graph(G)
+
+
+def line_graphs():
+    print("Line graph")
+    G = nx.star_graph(3)
+    L = nx.line_graph(G)
+    print(sorted(map(sorted, L.edges())))  # makes a 3-clique, K3
+    draw_graph(G)
+    draw_graph(L)
+
+
+def ego_graphs():
+    print("Ego graphs")
+    # G = nx.star_graph(7)
+    G = nx.bull_graph()
+    EG = nx.ego_graph(G, 2)
+    draw_graph(G)
+    draw_graph(EG)
+
+
+def stochastic_graphs():
+    print("Stochastic graphs")
+    D = nx.gn_graph(5)
+    SD = nx.stochastic_graph(D)
+    draw_graph(D)
+    draw_graph(SD)
+
+
+def intersection_graphs():
+    print("Intersection graphs")
+    print("Uniform random intersection graph")
+    G = nx.uniform_random_intersection_graph(n=14, m=5, p=0.07)
+    draw_graph(G)
+    print("K-random intersection graphs")
+    G = nx.k_random_intersection_graph(n=12, m=6, k=5)
+    draw_graph(G)
+    print("General random intersection graphs")
+    G = nx.general_random_intersection_graph(n=6, m=6, p=(0.25, 0.23, 0.8, 0.1, 0.8, 0.06))
+    draw_graph(G)
+
+
+def socialnetwork_graphs():
+    print("Social networks")
+    print("karate club graph")
+    G = nx.karate_club_graph()
+    draw_graph(G)
+    print("Davis Southern women bipartite graph ")
+    G = nx.davis_southern_women_graph()
+    draw_graph(G)
+    print("Florentine families graph ")
+    G = nx.florentine_families_graph()
+    draw_graph(G)
+
+
+def community_graphs():
+    print("Community graphs for social networks")
+    print("Caveman graph")
+    G = nx.caveman_graph(2, 13)
+    draw_graph(G)
+    print(" Connected Caveman graph")
+    G = nx.connected_caveman_graph(2, 3)
+    draw_graph(G)
+    print("Relaxed caveman")
+    G = nx.relaxed_caveman_graph(2, 5, 0.2)
+    draw_graph(G)
+    print("Random partition graph")
+    G = nx.random_partition_graph([10, 10, 10], .25, .01)
+    draw_graph(G)
+    print(len(G))
+    partition = G.graph['partition']
+    print(len(partition))
+    print("Planted partition graph")
+    G = nx.planted_partition_graph(4, 3, 0.5, 0.1, seed=42)
+    draw_graph(G)
+    print("Gaussian random partition graph")
+    G = nx.gaussian_random_partition_graph(40, 10, 10, .25, .1)
+    print(len(G))
+    draw_graph(G)
+
+
+'''
+def non_isomorphic_graphs():
+    G= nx.nonisomorphic_trees(order=(3,6))
+    print(M)
+    draw_graph(G)
+
+'''
 # atlas_graph_types()
 # classic_graphs()
-# expanders_graphs()
-small_graphs()
+# expanders_graphs()s
+# small_graphs()
+# random_graphs()
+# degree_sequence_graphs()
+# random_clustered_graphs()
+# directed_graphs()
+# geometric_graphs()
+# line_graphs()
+# ego_graphs()
+# stochastic_graphs()
+# intersection_graphs()
+# socialnetwork_graphs()
+# community_graphs()
+# non_isomorphic_graphs()
