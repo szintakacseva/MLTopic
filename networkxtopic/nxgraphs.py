@@ -15,7 +15,6 @@ def atlas_graph_types():
     draw_graph(G)
 '''
 
-
 def classic_graphs():
     print("Balanced Tree")
     BG = nx.balanced_tree(3, 2)
